@@ -5,25 +5,46 @@ import './App.css'
 import {useEffect, useState} from 'react'
 
 function App() {
+    // useState que guarda los productos
+    const [Products, setProducts] = useState([]);
+    
+    // useState que guarda los datos del formulario
+    const [formValues, setFormValues] = useState({
+        id: '',
+        nombre: '',
+        precioUn: '',
+        descripcion: '',
+        descuento: '',
+        Stock: '',
+    });
 
-      // useState que guarda los productos
-    const [Products, setProducts] = useState([])
     // useEffect que carga los productos
     useEffect(() => {
-        setProducts(data)
+      setProducts(data)
     }, [])
 
+    // Funcion que añade un producto
     function AddProduct(newProducts) {
       setProducts([...Products, newProducts])
-      
     }
 
-  return (
-    <div>
-      <ProductForm AddProduct={AddProduct}/>
-      <ProductList Products={Products}/>
-    </div>
-  )
+    // Funcion que modifica un producto
+    function onModifyProduct(id) {
+      const product = Products.find(p => p.id === id);
+
+      //Eliminamos el producto
+      setProducts(Products.filter((p) => p.id !== id));
+
+      //Rellenamos Formulario para poder modificar ese producto
+      setFormValues(product)
+    }
+
+    return (
+      <div>
+        <ProductForm AddProduct={AddProduct} formValues={formValues} setFormValues={setFormValues} Products={Products}/>
+        <ProductList Products={Products} onModifyProduct={onModifyProduct}/>
+      </div>
+    )
 }
 
 export default App
