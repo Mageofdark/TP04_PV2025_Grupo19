@@ -3,26 +3,27 @@ export const Products = [
     id: 1,
     nombre: "Laptop",
     precioUn: 100,
-    descripcion: "computadora portátil",
+    descripcion: "Computadora Portátil",
     descuento: 10,
-
     Stock: 10,
+    visible: true,
   },
   {
     id: 2,
     nombre: "Smartphone",
     precioUn: 50,
-    descripcion: "teléfono inteligente",
+    descripcion: "Teléfono Inteligente",
     descuento: 5,
-
     Stock: 20,
+    visible: true,
   },
   {
     id: 3,
     nombre: "Tablet",
     precioUn: 30,
-    descripcion: "tableta",
+    descripcion: "Tableta",
     descuento: 15,
     Stock: 15,
+    visible: true,
   },
 ];

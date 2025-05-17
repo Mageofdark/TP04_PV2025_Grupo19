@@ -1,7 +1,4 @@
-import { useState } from 'react';
-
 function ProductForm({ AddProduct, formValues, setFormValues, Products }) {
-
     // Actualiza el formulario
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -24,6 +21,7 @@ function ProductForm({ AddProduct, formValues, setFormValues, Products }) {
             descripcion: '',
             descuento: '',
             Stock: '',
+            visible: true,
         });
     };
 
@@ -40,10 +38,10 @@ function ProductForm({ AddProduct, formValues, setFormValues, Products }) {
             <h1>Lista de productos</h1>
             <p> ID: {getFreeId(Products)} </p>
             <form onSubmit={handleAddProduct}>
-                <input type="text" name="nombre" placeholder="Nombre del producto" value={formValues.nombre} onChange={handleChange} required/>
-                <input type="text" name="descripcion" placeholder="Descripción del producto" value={formValues.descripcion} onChange={handleChange} />
-                <input type="number" name="Stock" placeholder="Cantidad" value={formValues.Stock} onChange={handleChange} min="0" required/>
-                <input type="number" name="precioUn" placeholder="Precio del producto" value={formValues.precioUn} onChange={handleChange} min="0" required/>
+                <input type="text" name="nombre" placeholder="Nombre del Producto" value={formValues.nombre} onChange={handleChange} required/>
+                <input type="text" name="descripcion" placeholder="Descripción del Producto" value={formValues.descripcion} onChange={handleChange} />
+                <input type="number" name="Stock" placeholder="Cantidad" value={formValues.Stock} onChange={handleChange} min="1" required/>
+                <input type="number" name="precioUn" placeholder="Precio del Producto" value={formValues.precioUn} onChange={handleChange} min="0" required/>
                 <input type="number" name="descuento" placeholder="Descuento" value={formValues.descuento} onChange={handleChange} min="0" max="100"/>
                 <input type="submit" value="Agregar productos" />
             </form>
