@@ -1,35 +1,71 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import ProductList from './componentes/ProductList'
+import ProductForm from './componentes/ProductForm'
+import {Products as data}  from './Products'
 import './App.css'
+import {useEffect, useState, useCallback} from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
+    // useState que guarda los productos
+    const [Products, setProducts] = useState([]);
+    
+    // useState que guarda los datos del formulario
+    const [formValues, setFormValues] = useState({
+        id: '',
+        nombre: '',
+        precioUn: '',
+        descripcion: '',
+        descuento: '',
+        Stock: '',
+        visible: true,
+    });
 
-  return (
-    <>
+    // useState que guarda la cantidad de productos eliminados (en realidad productos no visibles)
+    const [deletedCount, setDeletedCount] = useState(0);
+
+    // useEffect que carga los productos
+    useEffect(() => {
+      setProducts(data)
+    }, [])
+
+    // Funcion que añade un producto
+    function AddProduct(newProducts) {
+      setProducts([...Products, newProducts])
+    }
+
+    // Funcion que modifica un producto
+    function onModifyProduct(id) {
+      const product = Products.find(p => p.id === id);
+
+      // Eliminamos el producto
+      setProducts(Products.filter((p) => p.id !== id));
+
+      // Rellenamos Formulario para poder modificar ese producto
+      setFormValues(product)
+    }
+
+    //Uso de useCallback para que no se renderice x cada actualizacion de formValues
+    // Hace no visible a un producto
+    const onDeleteProduct = useCallback((id) => {
+      // Cambia el atributo 'visible' del producto a falso
+      const updatedProducts = Products.map(p => {
+        if(p.id === id) return {...p, visible: false};
+        return p;
+      });
+
+      // Aumentamos los productos eliminados
+      setDeletedCount(deletedCount + 1);
+
+      // Actualizamos los productos
+      setProducts(updatedProducts);
+      
+    }, [Products, deletedCount]);
+
+    return (
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <ProductForm AddProduct={AddProduct} formValues={formValues} setFormValues={setFormValues} Products={Products}/>
+        <ProductList Products={Products} onModifyProduct={onModifyProduct} onDeleteProduct={onDeleteProduct} deletedCount={deletedCount}/>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p>
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    )
 }
 
 export default App
