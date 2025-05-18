@@ -43,7 +43,7 @@ function ProductForm({ AddProduct, formValues, setFormValues, Products }) {
                 <input type="number" name="Stock" placeholder="Cantidad" value={formValues.Stock} onChange={handleChange} min="1" required/>
                 <input type="number" name="precioUn" placeholder="Precio del Producto" value={formValues.precioUn} onChange={handleChange} min="0" required/>
                 <input type="number" name="descuento" placeholder="Descuento" value={formValues.descuento} onChange={handleChange} min="0" max="100"/>
-                <input type="submit" value="Agregar productos" />
+                <input class="btn" type="submit" value="Agregar productos" />
             </form>
         </div>
     );
