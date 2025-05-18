@@ -30,8 +30,12 @@ h1 {                                               /* titulo  */
   margin-bottom: 10px;
 }
 
+h2{                                               /* Nombre del producto */
+  font-size: 1.7em;
+}
+
 li{                                               /* listado de las propiedades */
-  font-size: 1.18em;
+  font-size: 1.2em;
   margin-bottom: 4px;
 }
 
@@ -64,6 +68,7 @@ input, .btn {
 input{                                  /* input */
   background-color: #dfd0d0;
   color: rgb(5, 5, 5);
+  width: 179px;
 }
 
 /* Estilo del input al pasar el mouse */
