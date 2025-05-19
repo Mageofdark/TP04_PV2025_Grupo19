@@ -1,7 +1,6 @@
 import ProductList from './componentes/ProductList'
 import ProductForm from './componentes/ProductForm'
 import {Products as data}  from './Products'
-import './App.css'
 import {useEffect, useState, useCallback} from 'react'
 import SearchBar from './componentes/SearchBar'
 
