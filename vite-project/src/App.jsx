@@ -3,6 +3,7 @@ import ProductForm from './componentes/ProductForm'
 import {Products as data}  from './Products'
 import './App.css'
 import {useEffect, useState, useCallback} from 'react'
+import SearchBar from './componentes/SearchBar'
 
 function App() {
     // useState que guarda los productos
@@ -62,8 +63,28 @@ function App() {
 
     return (
       <div>
-        <ProductForm AddProduct={AddProduct} formValues={formValues} setFormValues={setFormValues} Products={Products}/>
-        <ProductList Products={Products} onModifyProduct={onModifyProduct} onDeleteProduct={onDeleteProduct} deletedCount={deletedCount}/>
+        <ProductForm 
+          AddProduct={AddProduct}
+          formValues={formValues}
+          setFormValues={setFormValues}
+          Products={Products}
+        />
+        <SearchBar 
+        products={Products}
+        onModifyProduct={onModifyProduct}
+        onDeleteProduct={onDeleteProduct}
+        deletedCount={deletedCount}
+      />
+      
+        <div>
+        <h3>Todos los productos</h3>
+        <ProductList 
+          Products={Products} 
+          onModifyProduct={onModifyProduct} 
+          onDeleteProduct={onDeleteProduct} 
+          deletedCount={deletedCount}
+        />
+      </div>
       </div>
     )
 }
