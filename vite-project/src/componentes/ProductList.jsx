@@ -6,8 +6,8 @@ function ProductList( {Products, onModifyProduct, onDeleteProduct, deletedCount}
     return (
     <div>
         {Products.map((product) => product.visible && // Verifica que el producto debe estar visible
-        (<div class="div_producto" key={product.id}>
-                <h2>{product.nombre}</h2>
+        (<div className="div_producto" key={product.id}>
+                <h3>{product.nombre}</h3>
                 <ul>
                     <li>{product.descripcion}</li>
                     <li><b>Precio:</b> {product.precioUn} $</li>
@@ -15,8 +15,8 @@ function ProductList( {Products, onModifyProduct, onDeleteProduct, deletedCount}
                     <li><b>Precio con descuento:</b> {(product.precioUn * (1 - product.descuento / 100)).toFixed(2)} $</li>
                     <li><b>Stock:</b> {product.Stock} u</li>
                 </ul>
-                <button class="btn" onClick={() => { onModifyProduct(product.id) }}> Modificar </button>
-                <button class="btn" onClick={() => { onDeleteProduct(product.id) }}> Eliminar  </button>
+                <button className="btn" onClick={() => { onModifyProduct(product.id) }}> Modificar </button>
+                <button className="btn" onClick={() => { onDeleteProduct(product.id) }}> Eliminar  </button>
             </div>
         ))}
     </div>

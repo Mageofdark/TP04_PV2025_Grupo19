@@ -41,7 +41,7 @@ const SearchBar = ({
        {/*Renderiza si hay resultados */}
        {hasSearchResults &&(
         <div>
-          <h3>Resultados de busqeuda para "{searchTerm}"</h3>
+          <h2>Resultados de busqueda para "{searchTerm}"</h2>
           <ProductList
           Products={filteredProducts}
           onModifyProduct={onModifyProduct}
@@ -53,7 +53,7 @@ const SearchBar = ({
        {/*Renderiza caundo no hay resultados*/}
        {noSearchResults && (
         <div>
-          <h3>Resultados de busqueda</h3>
+          <h2>Resultados de busqueda</h2>
           <p>No se encontraton Productos con "{searchTerm}"</p>
         </div>
        )}

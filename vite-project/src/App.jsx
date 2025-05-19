@@ -77,7 +77,7 @@ function App() {
       />
       
         <div>
-        <h3>Todos los productos</h3>
+        <h2>Todos los productos</h2>
         <ProductList 
           Products={Products} 
           onModifyProduct={onModifyProduct} 
