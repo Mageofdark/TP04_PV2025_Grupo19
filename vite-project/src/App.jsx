@@ -1,7 +1,6 @@
 import ProductList from './componentes/ProductList'
 import ProductForm from './componentes/ProductForm'
 import {Products as data}  from './Products'
-import './App.css'
 import {useEffect, useState, useCallback} from 'react'
 import SearchBar from './componentes/SearchBar'
 
@@ -77,7 +76,7 @@ function App() {
       />
       
         <div>
-        <h3>Todos los productos</h3>
+        <h2>Todos los productos</h2>
         <ProductList 
           Products={Products} 
           onModifyProduct={onModifyProduct} 

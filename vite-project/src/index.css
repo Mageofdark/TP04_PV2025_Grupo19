@@ -10,6 +10,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  max-width: 1280px; 
+  margin: 0 auto;
+  padding: 2rem;
 }
 
 /* Estilo del body */
@@ -24,14 +28,19 @@ body {
 
 /* Estilo del texto */
 
-h1 {                                               /* titulo  */
+h1 {                                               /* Titulo principal */
   font-size: 3.2em;
   line-height: 1.1;
   margin-bottom: 10px;
 }
 
-h2{                                               /* Nombre del producto */
+h2{                                               /* Subtitulo */
+  font-size: 1.83em;
+}
+
+h3{                                               /* Nombre del producto */
   font-size: 1.7em;
+  margin-bottom: 22.576px;
 }
 
 li{                                               /* listado de las propiedades */
@@ -49,7 +58,7 @@ p{                                                /* id */
 .div_producto{
   max-width: 550px;
   padding-left: 7px;
-  border-left: 5px solid rgba(36, 149, 255, 0.747);
+  border-left: 6px solid rgba(36, 149, 255, 0.747);
   margin-top: 25px;
 }
 
